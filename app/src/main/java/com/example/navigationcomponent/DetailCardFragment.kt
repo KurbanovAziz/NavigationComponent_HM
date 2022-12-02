@@ -12,6 +12,7 @@ import com.example.navigationcomponent.databinding.FragmentDetailCardBinding
 class DetailCardFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailCardBinding
+    private lateinit var navArgs: DetailCardFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,9 +24,11 @@ class DetailCardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val detailCard = arguments?.getSerializable(KEY_DETAIL_CARD) as Card
-        binding.tvLife.text = detailCard.tvLife
-        binding.tvName.text = detailCard.tvName
-        binding.imageView.setImageResource(detailCard.image!!)
+        arguments?.let {
+            navArgs = DetailCardFragmentArgs.fromBundle(it)
+        }
+        binding.tvLife.text = navArgs.detail.tvLife
+        binding.tvName.text = navArgs.detail.tvName
+        binding.imageView.setImageResource(navArgs.detail.image!!)
     }
 }

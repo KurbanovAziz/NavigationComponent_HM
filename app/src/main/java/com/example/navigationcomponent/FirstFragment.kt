@@ -37,8 +37,7 @@ class FirstFragment : Fragment() {
 
     private fun onClick(position: Int) {
         findNavController().navigate(
-            R.id.detailCardFragment,
-            bundleOf(KEY_DETAIL_CARD to list[position])
+            FirstFragmentDirections.actionFirstFragmentToDetailCardFragment(list[position])
         )
     }
 

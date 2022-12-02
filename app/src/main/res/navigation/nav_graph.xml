@@ -9,10 +9,17 @@
         android:id="@+id/firstFragment"
         android:name="com.example.navigationcomponent.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_detailCardFragment"
+            app:destination="@id/detailCardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailCardFragment"
         android:name="com.example.navigationcomponent.DetailCardFragment"
         android:label="fragment_detail_card"
-        tools:layout="@layout/fragment_detail_card" />
+        tools:layout="@layout/fragment_detail_card" >
+        <argument android:name="detail"
+            app:argType="com.example.navigationcomponent.Card"/>
+    </fragment>
 </navigation>
